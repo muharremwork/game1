@@ -28,6 +28,3 @@ Android kaynakları `android/app` içindedir; derleme betiği ve açıklamalar
 Android klasöründe bulunur. Android SDK/JDK ve imzalama anahtarı depoya dahil edilmez.
 
 ## Kaynak sürümü
-
-PC/web: `159f73531f590d5577fa16874aed204a89b2086e`.
-Mevcut çevrimiçi oyun: https://sur-kusatmasi-1453-muho.cokis8046.chatgpt.site/
