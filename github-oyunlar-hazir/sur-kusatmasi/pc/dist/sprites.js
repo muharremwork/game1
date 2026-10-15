@@ -1,0 +1,8 @@
+function drawUnit(u){if(u.type.siegeStyle){drawExtraSiege(u);return}
+ const x=u.x,y=lanes[u.lane]+u.yoff,kind=u.kind,dir=u.side,bob=Math.sin(u.anim)*1.3;
+ if(u.type.mounted){ctx.save();ctx.translate(x,y);ctx.scale(dir,1);ellipse(0,2,26,4,'#253b3455');ellipse(-2,-17+bob,24,10,u.kind===6?'#665343':'#9c8058');poly([[13,-21],[24,-39],[34,-37],[29,-24],[19,-11]],u.kind===6?'#665343':'#9c8058');line(26,-33,34,-32,'#d6b983',2);const walk=u.moving?Math.sin(u.anim)*5:0;line(-17,-13,-20+walk,1,'#685542',4);line(14,-12,19-walk,1,'#685542',4);line(-26,-18,-35,-26,'#51493a',3);if(kind===6){poly([[-24,-22],[13,-26],[18,-12],[-22,-9]],u.type.color);line(-20,-17,15,-19,u.type.accent||'#ffda78',3)}ctx.restore();drawInfantry({...u,kind:kind===5?6:kind,yoff:u.yoff-17});return}
+ if(u.type.weapon==='catapult'){ctx.save();ctx.translate(x,y);ctx.scale(dir,1);ellipse(0,2,26,4,'#253b3455');line(-22,-7,22,-7,'#827353',7);line(-16,-8,-1,-40,'#a58d61',5);line(16,-8,-1,-40,'#a58d61',5);const swing=combatPose(u).recoil;ctx.save();ctx.translate(-1,-40);ctx.rotate(swing*.9);line(0,0,23,-16,'#b39867',5);rect(19,-20,13,5,'#c9b082');ctx.restore();line(-1,-40,-16,-7,'#c8b78a',1);[-16,16].forEach(a=>{ellipse(a,-3,7,7,'#596044');ctx.strokeStyle='#b09a64';ctx.lineWidth=2;ctx.stroke()});ctx.restore();drawSpecialHealth(u,x,y-67);return}
+ drawInfantry(u);
+ if(u.type.moraleAura){ctx.strokeStyle=u.side===1?'#e1bf7855':'#b4a0d755';ctx.lineWidth=1;ctx.beginPath();ctx.ellipse(x,y+1,31,7,0,0,Math.PI*2);ctx.stroke()}
+}
+function drawSpecialHealth(u,x,y){if(u.hp<u.maxHp){rect(x-13,y,26,3,'#263c34aa');rect(x-13,y,26*Math.max(0,u.hp/u.maxHp),3,u.side===1?'#a2bc88':'#c58a73')}}

@@ -1,0 +1,11 @@
+{
+  "name": "Sur Kuşatması Android",
+  "version": "1.0",
+  "platform": "Android 8.0+",
+  "desktop_source_commit": "8fa5668e1972f611e46db57526ae516784bb0054",
+  "desktop_url": "https://sur-kusatmasi-1453-muho.cokis8046.chatgpt.site/",
+  "separate_android_copy": true,
+  "offline": true,
+  "two_player": "same_device_touch",
+  "build_date": "2026-10-12"
+}
